@@ -1,10 +1,19 @@
 import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+
 
 export default function MovieList(props) {
+  const navigate = useNavigate();
+  const onMovieClick = id => () => {
+    navigate(`movies/${id}`)
+  }
   return (
     <div className="movie-list">
       {props.movies.map(movie => (
-        <MovieDetails key={movie.id} movie={movie} />
+        <MovieDetails 
+        
+        
+        key={movie.id} movie={movie} />
       ))}
     </div>
   );
